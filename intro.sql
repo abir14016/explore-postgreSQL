@@ -66,9 +66,35 @@ Drop constraint unique_email;
 
 
 
+--Department TABLE
+--Each departmnet has multiple department
+create table Department(
+    deptID SERIAL PRIMARY KEY,
+    deptName VARCHAR(20) NOT NULL
+)
 
+SELECT * FROM Department;
+
+INSERT INTO Department VALUES(1,'CSE');
+DELETE from Department WHERE deptID=1;
+
+
+
+--Employee TABLE
+--each employee belongs to a department
+create table Employee(
+    empID SERIAL PRIMARY KEY,
+    empName VARCHAR(20) NOT NULL,
+    departmentID INT,
+    CONSTRAINT fk_constraint_dept
+        FOREIGN KEY (departmentID)
+        REFERENCES Department(deptID)
+)
+
+SELECT * FROM Employee;
 
 INSERT INTO Employee VALUES(1,'Shamim', 1);
+DELETE FROM Employee WHERE empID=1;
 
 
 
