@@ -97,5 +97,32 @@ INSERT INTO Employee VALUES(1,'Shamim', 1);
 DELETE FROM Employee WHERE empID=1;
 
 
+--courses TABLE
+CREATE TABLE courses(
+    course_id SERIAL PRIMARY KEY,
+    course_name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    published_date DATE
+)
+
+--Date format: YYYY-MM-DD
+
+INSERT INTO 
+    courses(course_name,description,published_date)
+VALUES
+('HTML','description for HTML', '2020-07-13'),
+('CSS','description for CSS', '2020-07-13'),
+('JS','description for JS', NULL),
+('REACT',NULL, NULL)
+
+UPDATE courses
+set
+course_name = 'JS for beginers',
+description='Dummy text'
+WHERE course_id=3
+
+SELECT * FROM courses;
+
+
 
 TRUNCATE TABLE users;
