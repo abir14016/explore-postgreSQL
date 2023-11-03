@@ -121,6 +121,9 @@ course_name = 'JS for beginers',
 description='Dummy text'
 WHERE course_id=3
 
+DELETE FROM courses
+WHERE course_id=4
+
 SELECT * FROM courses;
 
 
