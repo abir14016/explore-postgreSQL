@@ -66,35 +66,55 @@ Drop constraint unique_email;
 
 
 
---Department TABLE
---Each departmnet has multiple department
-create table Department(
+--Departments table/relation
+CREATE TABLE IF NOT EXISTS departments(
     deptID SERIAL PRIMARY KEY,
-    deptName VARCHAR(20) NOT NULL
+    deptName TEXT NOT NULL
 )
 
-SELECT * FROM Department;
+--insert values into departments table/relation
+INSERT INTO departments(deptname) 
+VALUES
+('IT'),
+('HR'),
+('Marketing'),
+('Finance'),
+('Sales');
 
-INSERT INTO Department VALUES(1,'CSE');
-DELETE from Department WHERE deptID=1;
+--select all fields dfrom departments table/relation
+SELECT * FROM departments;
 
 
 
 --Employee TABLE
 --each employee belongs to a department
-create table Employee(
+create table IF NOT EXISTS employees(
     empID SERIAL PRIMARY KEY,
-    empName VARCHAR(20) NOT NULL,
-    departmentID INT,
-    CONSTRAINT fk_constraint_dept
-        FOREIGN KEY (departmentID)
-        REFERENCES Department(deptID)
+    empName TEXT NOT NULL,
+    email TEXT NOT NULL,
+    salary INT NOT NULL,
+    joining_date DATE NOT NULL,
+    deptID INT,
+    CONSTRAINT fk_deptID
+        FOREIGN KEY (deptID)
+        REFERENCES departments(deptID)
 )
 
-SELECT * FROM Employee;
+--insert values into employees table/relation
+INSERT INTO employees(empName, email,salary,joining_date, deptID) 
+VALUES
+('Shamim','shamim@gmail.com', 20000, '2023-08-25',1),
+('Abir','abir@gmail.com', 90000, '2020-08-25',2),
+('Rony','rony@gmail.com', 30000, '2022-08-25',3),
+('Shakib','shakib@gmail.com', 70000, '2023-08-25',4),
+('Salman','salman@gmail.com', 60000, '2023-08-25',5),
+('Siraj','siraj@gmail.com', 40000, '2023-08-25',1);
 
-INSERT INTO Employee VALUES(1,'Shamim', 1);
-DELETE FROM Employee WHERE empID=1;
+--select all fields from employees table/relation
+SELECT * FROM employees;
+--select some columns
+SELECT empid,empName,email, salary, joining_date, deptID from employees;
+
 
 
 --courses TABLE
