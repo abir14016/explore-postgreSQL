@@ -126,7 +126,18 @@ SELECT * FROM employees
 ORDER BY empname
 DESC;
 
+--heighst salary from employees table
+SELECT * FROM employees
+ORDER BY salary
+DESC
+LIMIT 1;
 
+--3rd heighst salary from employees table
+SELECT * FROM employees
+ORDER BY salary
+DESC
+LIMIT 1
+OFFSET 2;
 
 --courses TABLE
 CREATE TABLE courses(
