@@ -115,6 +115,10 @@ SELECT * FROM employees;
 --select some columns
 SELECT empid,empName,email, salary, joining_date, deptID from employees;
 
+--conditional seect
+select * FROM employees
+WHERE salary>60000 and salary<100000;
+
 
 
 --courses TABLE
