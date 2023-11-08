@@ -119,6 +119,13 @@ SELECT empid,empName,email, salary, joining_date, deptID from employees;
 select * FROM employees
 WHERE salary>60000 and salary<100000;
 
+SELECT * FROM employees
+ORDER BY empname
+ASC LIMIT 2 OFFSET 2;
+SELECT * FROM employees
+ORDER BY empname
+DESC;
+
 
 
 --courses TABLE
