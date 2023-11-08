@@ -139,6 +139,18 @@ DESC
 LIMIT 1
 OFFSET 2;
 
+--IN NOT IN, BETWEEN and LIKE
+SELECT * FROM employees WHERE deptid IN (2,3);
+SELECT * FROM employees WHERE deptid NOT IN (2,3);
+SELECT  * FROM employees WHERE empid BETWEEN 1 AND 3;
+SELECT  * FROM employees WHERE empname LIKE '%a%'; -- a in name
+SELECT  * FROM employees WHERE empname LIKE 'a%'; -- a in first position in name
+SELECT  * FROM employees WHERE empname LIKE '%a'; -- a in last position in name
+SELECT  * FROM employees WHERE empname LIKE '_a%'; -- specific position (a in second position)
+SELECT  * FROM employees WHERE empname LIKE '__a__'; 
+SELECT  * FROM employees WHERE empname LIKE 'S%n'; 
+
+
 --courses TABLE
 CREATE TABLE courses(
     course_id SERIAL PRIMARY KEY,
