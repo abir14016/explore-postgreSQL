@@ -9,6 +9,8 @@
 
 -- rename a table NAME
 
+CREATE DATABASE teat4;
+
 ALTER TABLE users2 RENAME to users;
 
 --delete a TABLE
