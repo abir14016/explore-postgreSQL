@@ -185,3 +185,52 @@ SELECT * FROM courses;
 
 
 TRUNCATE TABLE users;
+
+
+
+--for test4 DATABASE
+--creating department table
+CREATE TABLE department (
+    deptId INT PRIMARY KEY,
+    deptName VARCHAR(100)
+);
+
+--creating employees table
+CREATE TABLE employees (
+    employeeId INT PRIMARY KEY,
+    fullName VARCHAR(100),
+    deptId INT,
+    jobRole VARCHAR(100),
+    managerId INT,
+    FOREIGN KEY (deptId) REFERENCES department(deptId)
+);
+
+--inserting data into department table
+INSERT INTO department(deptId, deptName) 
+VALUES
+(1,'IT'),
+(2,'HR'),
+(3,'Marketing'),
+(4,'Finance'),
+(5,'Sales'),
+(6,'Executive');
+
+--inserting data into employees table
+INSERT INTO 
+    employees (employeeId, fullName,deptId, jobRole, managerId)
+    VALUES
+    (1, 'John Doe', 2, 'Frontend Developer', 5),
+    (2, 'John Smith', 1, 'Backend Developer', 6),
+    (3, 'Daniel', 2, 'Frontend Engineer', 5),
+    (4, 'John Mata', 2, 'Support', 1),
+    (5, 'Selena', 4, 'Support', 2),
+    (6, 'Gomez', Null, 'Job Placement', 4),
+    (7, 'Nila', 6, 'CEO', 3),
+    (8, 'Jahan', 3, 'CEO', 7),
+    (9, 'Dinesh', 5, 'Frontend Developer', 1),
+    (10, 'Virat Kohli', 6, 'Frontend Driver', 8),
+    (11, 'Rohit', 2, 'Puller', Null);
+
+SELECT * FROM department;
+
+SELECT * FROM employees;
