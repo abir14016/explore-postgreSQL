@@ -239,3 +239,28 @@ SELECT * FROM employees;
 SELECT *
 FROM employees
 INNER JOIN department On department.deptId = employees.deptId;
+
+--left joining
+SELECT *
+FROM employees
+LEFT JOIN department On department.deptId = employees.deptId;
+
+--right joining
+SELECT *
+FROM employees
+RIGHT JOIN department On department.deptId = employees.deptId;
+
+--full joining
+SELECT *
+FROM employees
+FULL JOIN department On department.deptId = employees.deptId;
+
+--natural joining
+SELECT *
+FROM employees
+NATURAL JOIN department;
+
+--cross joining
+SELECT *
+FROM employees
+CROSS JOIN department;
