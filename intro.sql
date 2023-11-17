@@ -234,6 +234,7 @@ INSERT INTO
 SELECT * FROM department;
 
 SELECT * FROM employees;
+SELECT * FROM departments;
 
 --inner joining
 SELECT *
@@ -264,3 +265,14 @@ NATURAL JOIN department;
 SELECT *
 FROM employees
 CROSS JOIN department;
+
+--aggregate function on database test2
+SELECT AVG(salary) AS avgSalary FROM employees;
+SELECT MIN(salary) AS minSalary FROM employees; 
+SELECT MAX(salary) AS maxSalary FROM employees;
+SELECT SUM(salary) AS sumOfSalary FROM employees;
+SELECT deptid, AVG(salary) AS groupAvg FROM employees GROUP BY deptid;
+
+SELECT d.deptname, AVG(salary), SUM(salary), MIN(salary), MAX(salary), COUNT(*) FROM employees e
+FULL JOIN departments d ON e.deptid = d.deptid
+GROUP BY d.deptname HAVING AVG(e.salary)>60000
