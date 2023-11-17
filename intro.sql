@@ -234,3 +234,8 @@ INSERT INTO
 SELECT * FROM department;
 
 SELECT * FROM employees;
+
+--inner joining
+SELECT *
+FROM employees
+INNER JOIN department On department.deptId = employees.deptId;
