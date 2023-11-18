@@ -295,3 +295,6 @@ VALUES
     (2, 'Jane Smith', 'IT', 60000.00),
     (3, 'Michael Johnson', 'Finance', 55000.00),
     (4, 'Emily Brown', 'HR', 52000.00);
+
+--task-1: Write an SQL query to retrieve the names and salaries of employees who work in the "HR" department.
+SELECT emp_name, salary FROM employees WHERE department = 'HR';
