@@ -276,3 +276,22 @@ SELECT deptid, AVG(salary) AS groupAvg FROM employees GROUP BY deptid;
 SELECT d.deptname, AVG(salary), SUM(salary), MIN(salary), MAX(salary), COUNT(*) FROM employees e
 FULL JOIN departments d ON e.deptid = d.deptid
 GROUP BY d.deptname HAVING AVG(e.salary)>60000
+
+
+
+--for database tasks
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department VARCHAR(50),
+    salary DECIMAL(10, 2)
+);
+
+SELECT * FROM employees;
+
+INSERT INTO employees (emp_id, emp_name, department, salary)
+VALUES
+    (1, 'John Doe', 'HR', 50000.00),
+    (2, 'Jane Smith', 'IT', 60000.00),
+    (3, 'Michael Johnson', 'Finance', 55000.00),
+    (4, 'Emily Brown', 'HR', 52000.00);
