@@ -366,3 +366,52 @@ VALUES
     (2, 1, 102),
     (3, 2, 103),
     (4, 3, 101);
+
+SELECT s.student_name, cr.course_name, cr.credits
+FROM students s
+JOIN enrollment e on e.student_id=s.student_id
+JOIN courses cr ON cr.course_id=e.course_id
+
+--Task-4: Write an SQL query to retrieve the department name and the average salary of employees working in each department. Sort the results by the average salary in descending order.
+
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    emp_name VARCHAR(50),
+    department_id INT
+);
+
+SELECT * from employees;
+
+CREATE TABLE departments (
+    department_id INT PRIMARY KEY,
+    department_name VARCHAR(50)
+);
+
+SELECT * from departments;
+
+CREATE TABLE salaries (
+    emp_id INT,
+    salary DECIMAL(10, 2)
+);
+
+SELECT * from salaries;
+
+INSERT INTO employees (emp_id, emp_name, department_id)
+VALUES
+    (1, 'John Doe', 1),
+    (2, 'Jane Smith', 2),
+    (3, 'Michael Johnson', 1),
+    (4, 'Emily Brown', 3);
+
+INSERT INTO departments (department_id, department_name)
+VALUES
+    (1, 'HR'),
+    (2, 'IT'),
+    (3, 'Finance');
+
+INSERT INTO salaries (emp_id, salary)
+VALUES
+    (1, 50000.00),
+    (2, 60000.00),
+    (3, 55000.00),
+    (4, 52000.00);
