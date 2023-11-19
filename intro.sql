@@ -316,5 +316,6 @@ VALUES
     (104, 3, 400.00),
     (105, 2, 250.00);
 
-SELECT * FROM orders;
+SELECT customer_id, AVG(total_amount) AS avg_total FROM orders
+GROUP BY customer_id HAVING AVG(total_amount)>=250;
 
