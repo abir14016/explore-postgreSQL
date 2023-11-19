@@ -280,6 +280,7 @@ GROUP BY d.deptname HAVING AVG(e.salary)>60000
 
 
 --for database tasks
+--task-1: Write an SQL query to retrieve the names and salaries of employees who work in the "HR" department.
 CREATE TABLE employees (
     emp_id INT PRIMARY KEY,
     emp_name VARCHAR(50),
@@ -296,5 +297,24 @@ VALUES
     (3, 'Michael Johnson', 'Finance', 55000.00),
     (4, 'Emily Brown', 'HR', 52000.00);
 
---task-1: Write an SQL query to retrieve the names and salaries of employees who work in the "HR" department.
 SELECT emp_name, salary FROM employees WHERE department = 'HR';
+
+
+--Task-2: Write an SQL query to find the customer IDs and the average total amount of their orders. Display only those customers whose average total amount is greater than or equal to 250.
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    total_amount DECIMAL(10, 2)
+);
+
+INSERT INTO orders (order_id, customer_id, total_amount)
+VALUES
+    (101, 1, 200.00),
+    (102, 2, 300.00),
+    (103, 1, 150.00),
+    (104, 3, 400.00),
+    (105, 2, 250.00);
+
+SELECT * FROM orders;
+
