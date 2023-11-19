@@ -319,3 +319,50 @@ VALUES
 SELECT customer_id, AVG(total_amount) AS avg_total FROM orders
 GROUP BY customer_id HAVING AVG(total_amount)>=250;
 
+
+--Task-3: Write an SQL query to retrieve the student name, course name, and credits for all enrolled courses.
+
+CREATE TABLE students (
+    student_id INT PRIMARY KEY,
+    student_name VARCHAR(50),
+    age INT,
+    gender VARCHAR(10)
+);
+
+SELECT * FROM students;
+
+CREATE TABLE courses (
+    course_id INT PRIMARY KEY,
+    course_name VARCHAR(50),
+    credits INT
+);
+
+SELECT * FROM courses;
+
+INSERT INTO students (student_id, student_name, age, gender)
+VALUES
+    (1, 'Alice', 22, 'Female'),
+    (2, 'Bob', 21, 'Male'),
+    (3, 'Charlie', 23, 'Male');
+
+INSERT INTO courses (course_id, course_name, credits)
+VALUES
+    (101, 'Mathematics', 3),
+    (102, 'History', 4),
+    (103, 'Physics', 3);
+
+-- Enrollment table with student-course relationships
+CREATE TABLE enrollment (
+    enrollment_id INT PRIMARY KEY,
+    student_id INT,
+    course_id INT
+);
+
+SELECT * FROM enrollment;
+
+INSERT INTO enrollment (enrollment_id, student_id, course_id)
+VALUES
+    (1, 1, 101),
+    (2, 1, 102),
+    (3, 2, 103),
+    (4, 3, 101);
