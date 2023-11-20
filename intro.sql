@@ -493,3 +493,34 @@ AS  $$
         RETURN account_count;
     END
 $$
+
+--trigger
+CREATE TABLE products (
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(50) NOT NULL,
+    base_price float8 NOT NULL,
+    final_price float8
+);
+
+INSERT INTO products (title, base_price)
+VALUES
+('mango', 80);
+
+CREATE OR REPLACE TRIGGER add_tax_trigger
+AFTER
+INSERT ON products
+FOR EACH ROW
+EXECUTE FUNCTION update_final_price();
+
+CREATE OR REPLACE FUNCTION update_final_price()
+RETURNS TRIGGER
+LANGUAGE PLPGSQL
+AS $$
+BEGIN
+    NEW.final_price := NEW.base_price * 1.05;
+    RETURN NEW;
+END;
+$$;
+
+
+SELECT * FROM products;
