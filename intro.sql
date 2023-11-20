@@ -523,4 +523,8 @@ END;
 $$;
 
 
-SELECT * FROM products;
+--indexing
+SELECT * FROM employees;
+EXPLAIN ANALYZE SELECT * from employees;
+
+CREATE INDEX name_idx ON employees(empName)
