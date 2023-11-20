@@ -415,3 +415,10 @@ VALUES
     (2, 60000.00),
     (3, 55000.00),
     (4, 52000.00);
+
+SELECT d.department_name, AVG(s.salary)
+FROM employees e
+JOIN salaries s ON s.emp_id = e.emp_id
+JOIN departments d ON e.department_id = d.department_id
+GROUP BY d.department_name
+ORDER BY AVG(salary) ASC;
