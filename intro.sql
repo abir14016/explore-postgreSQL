@@ -465,3 +465,11 @@ SELECT emp_name, (
 SELECT dept_id, avg_salary FROM (
     SELECT emp_department as dept_id, avg(emp_slary) as avg_salary FROM employees GROUP BY dept_id
 ) as tempTable
+
+
+--view
+CREATE VIEW first_view
+AS
+SELECT emp_department FROM employees;
+
+SELECT emp_department, COUNT(*) FROM first_view GROUP BY emp_department;
