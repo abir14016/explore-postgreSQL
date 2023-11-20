@@ -422,3 +422,24 @@ JOIN salaries s ON s.emp_id = e.emp_id
 JOIN departments d ON e.department_id = d.department_id
 GROUP BY d.department_name
 ORDER BY AVG(salary) ASC;
+
+--Task-5: Write an SQL query to find the total sales amount for each month, along with the number of orders in that month.
+
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT,
+    order_date DATE,
+    total_amount DECIMAL(10, 2)
+);
+
+INSERT INTO orders (order_id, customer_id, order_date, total_amount)
+VALUES
+    (101, 1, '2023-01-05', 200.00),
+    (102, 2, '2023-01-06', 300.00),
+    (103, 1, '2023-02-10', 150.00),
+    (104, 3, '2023-02-15', 400.00),
+    (105, 2, '2023-03-20', 250.00);
+
+SELECT to_char(order_date, 'Month'), SUM(total_amount), COUNT(*)
+FROM orders
+GROUP BY to_char(order_date, 'Month')
