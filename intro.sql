@@ -443,3 +443,25 @@ VALUES
 SELECT to_char(order_date, 'Month'), SUM(total_amount), COUNT(*)
 FROM orders
 GROUP BY to_char(order_date, 'Month')
+
+
+--sub query
+SELECT * FROM employees WHERE emp_slary = (
+    SELECT MAX(emp_slary) FROM employees
+);
+
+SELECT * FROM employees WHERE emp_slary IN (
+    SELECT emp_slary FROM employees WHERE emp_name LIKE '%a%'
+);
+
+SELECT * FROM employees WHERE emp_slary>(
+    SELECT AVG(emp_slary) from employees
+);
+
+SELECT emp_name, (
+    SELECT AVG(emp_slary) FROM employees
+) FROM employees;
+
+SELECT dept_id, avg_salary FROM (
+    SELECT emp_department as dept_id, avg(emp_slary) as avg_salary FROM employees GROUP BY dept_id
+) as tempTable
