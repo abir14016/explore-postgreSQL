@@ -473,3 +473,23 @@ AS
 SELECT emp_department FROM employees;
 
 SELECT emp_department, COUNT(*) FROM first_view GROUP BY emp_department;
+
+--procedure
+CREATE PROCEDURE deactivate_unpaid_accounts()
+LANGUAGE SQL
+AS  $$
+    UPDATE accounts set account = false WHERE balance =0
+$$
+
+CALL deactive_unpaid_accounts();
+
+--function
+CREATE FUNCTION account_type_count(account_type text) RETURNS INTEGER
+LANGUAGE SQL
+AS  $$
+    DECLARE account_count INT;
+    BEGIN
+        SELECT COUNT(*) into account_count from accounts WHERE accounts.account_type = $1;
+        RETURN account_count;
+    END
+$$
